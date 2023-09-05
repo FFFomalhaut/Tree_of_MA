@@ -1,0 +1,1668 @@
+<script type="text/javascript" src="https://chexie.net/bbs/lib/jquery.min.js"></script>
+<style>
+    #tree details {padding-left: 20px;}
+    #tree a.author {font-size: 16px; color: #000000; text-decoration: none;}
+    details.master[open] {position: relative;}
+    details.master[open]::before {content: ""; display: block; position: absolute; transform: translate(4px,30px); height: calc(100% - 35px); border-left: 2px solid #ccc; }
+    details.master.alive[open]::before {border-left-color: #929292; }
+    details.graduated > summary::marker {content: "ᴳ "; padding-right: 4px;}
+    details.apprentice > summary::marker {content: "ᴬ "; padding-right: 4px;}
+    details:not([class]) > summary::marker {content: "• "; margin-right: 40px;}
+</style>
+<script>
+    function found(name) {
+        var $queue = $("summary").filter(function() {
+            return $(this).text() === name;
+        });
+        $queue.each(function() {
+            $(this).parent().parents("details").attr("open",true)
+        });
+        return $queue.length;
+    }
+    function expand_all() {
+        $("details").attr('open',true);
+    }
+    function collapse_all() {
+        $("details").attr("open", false);
+    }
+    function tofound() {
+        var name=$("input[name='id']").val();
+        if (found(name) == 0) {
+            alert("无结果");
+        }
+        else {
+            find(name);
+        }
+    }
+    $(function() {
+        var user=$("span.userinfo")[0].childNodes[0].nodeValue.slice(7);
+        found(user);
+        $("input[name='id']").val(user);
+    })
+
+</script>
+<div style="text-align: center;">=====请用户关注最后修改时间=====</div>
+<div>
+    <button onclick="expand_all()">全部展开</button>
+    <button onclick="collapse_all()">全部收起</button>
+</div>
+<div>
+    <input name="id" placeholder="技术有限，不支持模糊搜索！">
+    <button onclick="tofound()">查找</button>
+    <span style="padding:5px;border:1px solid yellow;border-radius:3px;margin:0px 5px;background-color:#eeb">
+        ℹ 如果使用者用电脑访问，建议直接用浏览器自带的查找功能
+    </span>
+</div>
+<div id="tree">
+    <details class="root">
+        <summary>实践部师徒制</summary>
+        <details class="master">
+            <summary><a class="author" href="../user?name=Godlike" target="_blank">Godlike</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=牙膏" target="_blank">牙膏</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=晨星" target="_blank">晨星</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=兜子" target="_blank">兜子</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=晨风" target="_blank">晨风</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=寂寞" target="_blank">寂寞</a></summary>
+            </details>
+        </details>
+        <details class="master alive">
+            <summary><a class="author" href="../user?name=赞无" target="_blank">赞无</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=馄饨" target="_blank">馄饨</a></summary>
+            </details>
+            <details class="master">
+                <summary><a class="author" href="../user?name=二毛" target="_blank">二毛</a></summary>
+            </details>
+            <details class="master alive">
+                <summary><a class="author" href="../user?name=帅帅" target="_blank">帅帅</a></summary>
+                <details class="master alive">
+                    <summary><a class="author" href="../user?name=老壮" target="_blank">老壮</a></summary>
+                    <details class="apprentice">
+                        <summary><a class="author" href="../user?name=咖啡" target="_blank">咖啡</a></summary>
+                    </details>
+                    <details class="apprentice">
+                        <summary><a class="author" href="../user?name=派大星" target="_blank">派大星</a></summary>
+                    </details>
+                    <details class="apprentice">
+                        <summary><a class="author" href="../user?name=梦寐" target="_blank">梦寐</a></summary>
+                    </details>
+                    <details class="apprentice">
+                        <summary><a class="author" href="../user?name=萌新" target="_blank">萌新</a></summary>
+                    </details>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=山人" target="_blank">山人</a></summary>
+                    </details>
+                    <details class="master alive">
+                        <summary><a class="author" href="../user?name=小东" target="_blank">小东</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=书生" target="_blank">书生</a></summary>
+                        </details>
+                        <details class="master alive">
+                            <summary><a class="author" href="../user?name=阿瑟平井" target="_blank">阿瑟平井</a></summary>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=麦当" target="_blank">麦当</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=阿喂" target="_blank">阿喂</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=东南枝" target="_blank">东南枝</a></summary>
+                            </details>
+                            <details class="apprentice">
+                                <summary><a class="author" href="../user?name=小白房" target="_blank">小白房</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=不突" target="_blank">不突</a></summary>
+                            </details>
+                            <details class="master alive">
+                                <summary><a class="author" href="../user?name=辰羽" target="_blank">辰羽</a></summary>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=归尘" target="_blank">归尘</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=六爻" target="_blank">六爻</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=飞舟" target="_blank">飞舟</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=东日" target="_blank">东日</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=一墨" target="_blank">一墨</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=鲸岛" target="_blank">鲸岛</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=吉姆" target="_blank">吉姆</a></summary>
+                                    </details>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=小熊猫猫" target="_blank">小熊猫猫</a></summary>
+                                </details>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=沐阳" target="_blank">沐阳</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=菜叶子" target="_blank">菜叶子</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=木山" target="_blank">木山</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=河山" target="_blank">河山</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=鹤临" target="_blank">鹤临</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=Jewish" target="_blank">Jewish</a></summary>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=Ricky" target="_blank">Ricky</a></summary>
+                                    </details>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=还也" target="_blank">还也</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=小巴车" target="_blank">小巴车</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=支原体" target="_blank">支原体</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=丽仔" target="_blank">丽仔</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=椰汁" target="_blank">椰汁</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=2049" target="_blank">2049</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=轩" target="_blank">轩</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=解旋酶" target="_blank">解旋酶</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=椰子王" target="_blank">椰子王</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=萤火ovo" target="_blank">萤火ovo</a></summary>
+                                </details>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=浑沌" target="_blank">浑沌</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=菠萝吹雪" target="_blank">菠萝吹雪</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=会赢" target="_blank">会赢</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=颠颠" target="_blank">颠颠</a></summary>
+                            </details>
+                        </details>
+                    </details>
+                    <details class="apprentice">
+                        <summary><a class="author" href="../user?name=小末" target="_blank">小末</a></summary>
+                    </details>
+                    <details class="graduated">
+                        <summary><a class="author" href="../user?name=黑狐" target="_blank">黑狐</a></summary>
+                    </details>
+                    <details class="graduated">
+                        <summary><a class="author" href="../user?name=霖" target="_blank">霖</a></summary>
+                    </details>
+                    <details class="apprentice">
+                        <summary><a class="author" href="../user?name=北风" target="_blank">北风</a></summary>
+                    </details>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=bbs" target="_blank">bbs</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=杨威利" target="_blank">杨威利</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=吉利亚特" target="_blank">吉利亚特</a></summary>
+                </details>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=旺旺小小酥" target="_blank">旺旺小小酥</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=甘道夫" target="_blank">甘道夫</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=Albus" target="_blank">Albus</a></summary>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=李杏" target="_blank">李杏</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=梧桐" target="_blank">梧桐</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=小麦m" target="_blank">小麦m</a></summary>
+            </details>
+            <details class="master">
+                <summary><a class="author" href="../user?name=何小柚" target="_blank">何小柚</a></summary>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=加了个油" target="_blank">加了个油</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=豆豆狐" target="_blank">豆豆狐</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=不死鸟_掠影" target="_blank">不死鸟_掠影</a></summary>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=湘湘" target="_blank">湘湘</a></summary>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=Rayman" target="_blank">Rayman</a></summary>
+            </details>
+        </details>
+        <details class="master alive">
+            <summary><a class="author" href="../user?name=骆驼祥子" target="_blank">骆驼祥子</a></summary>
+            <details class="master alive">
+                <summary><a class="author" href="../user?name=迅雷" target="_blank">迅雷</a></summary>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=雪饼" target="_blank">雪饼</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=狼" target="_blank">狼</a></summary>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=4又" target="_blank">4又</a></summary>
+                    </details>
+                </details>
+                <details class="master alive">
+                    <summary><a class="author" href="../user?name=阿丑" target="_blank">阿丑</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=Kcu" target="_blank">Kcu</a></summary>
+                    </details>
+                    <details class="master alive">
+                        <summary><a class="author" href="../user?name=六猫" target="_blank">六猫</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=特雷" target="_blank">特雷</a></summary>
+                        </details>
+                        <details class="master alive">
+                            <summary><a class="author" href="../user?name=阿柱" target="_blank">阿柱</a></summary>
+                            <details class="master alive">
+                                <summary><a class="author" href="../user?name=风行" target="_blank">风行</a></summary>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=walle" target="_blank">walle</a></summary>
+                                    <details class="master">
+                                        <summary><a class="author" href="../user?name=老蒋" target="_blank">老蒋</a></summary>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=红枫" target="_blank">红枫</a></summary>
+                                        </details>
+                                        <details class="master">
+                                            <summary><a class="author" href="../user?name=lseventeen" target="_blank">lseventeen</a></summary>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=未晞" target="_blank">未晞</a></summary>
+                                            </details>
+                                            <details class="master">
+                                                <summary><a class="author" href="../user?name=小象" target="_blank">小象</a></summary>
+                                                <details>
+                                                    <summary><a class="author" href="../user?name=科尔沁" target="_blank">科尔沁</a></summary>
+                                                </details>
+                                                <details>
+                                                    <summary><a class="author" href="../user?name=沉积岩" target="_blank">沉积岩</a></summary>
+                                                </details>
+                                                <details class="graduated">
+                                                    <summary><a class="author" href="../user?name=千寻" target="_blank">千寻</a></summary>
+                                                </details>
+                                                <details class="apprentice">
+                                                    <summary><a class="author" href="../user?name=小豹" target="_blank">小豹</a></summary>
+                                                </details>
+                                                <details class="apprentice">
+                                                    <summary><a class="author" href="../user?name=黑桃♠Q" target="_blank">黑桃♠Q</a></summary>
+                                                </details>
+                                                <details class="apprentice">
+                                                    <summary><a class="author" href="../user?name=小派" target="_blank">小派</a></summary>
+                                                </details>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=火山灰" target="_blank">火山灰</a></summary>
+                                            </details>
+                                        </details>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=雨荷" target="_blank">雨荷</a></summary>
+                                        </details>
+                                        <details class="master">
+                                            <summary><a class="author" href="../user?name=阿批" target="_blank">阿批</a></summary>
+                                        </details>
+                                        <details class="master">
+                                            <summary><a class="author" href="../user?name=阿喆" target="_blank">阿喆</a></summary>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=肉凇" target="_blank">肉凇</a></summary>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=螳螂" target="_blank">螳螂</a></summary>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=宗主" target="_blank">宗主</a></summary>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=Jager" target="_blank">Jager</a></summary>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=皮皮怪" target="_blank">皮皮怪</a></summary>
+                                            </details>
+                                        </details>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=张小白" target="_blank">张小白</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=芒果" target="_blank">芒果</a></summary>
+                                    </details>
+                                </details>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=核桃" target="_blank">核桃</a></summary>
+                                    <details class="master">
+                                        <summary><a class="author" href="../user?name=猿" target="_blank">猿</a></summary>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=可乐" target="_blank">可乐</a></summary>
+                                        </details>
+                                        <details class="master">
+                                            <summary><a class="author" href="../user?name=晓岸" target="_blank">晓岸</a></summary>
+                                            <details class="master">
+                                                <summary><a class="author" href="../user?name=老白" target="_blank">老白</a></summary>
+                                                <details class="graduated">
+                                                    <summary><a class="author" href="../user?name=小盆友" target="_blank">小盆友</a></summary>
+                                                </details>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=豌豆" target="_blank">豌豆</a></summary>
+                                            </details>
+                                        </details>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=绵绵冰" target="_blank">绵绵冰</a></summary>
+                                        </details>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=含笑撞南墙" target="_blank">含笑撞南墙</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=小猴子" target="_blank">小猴子</a></summary>
+                                    </details>
+                                    <details class="master alive">
+                                        <summary><a class="author" href="../user?name=好男人" target="_blank">好男人</a></summary>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=木纸" target="_blank">木纸</a></summary>
+                                        </details>
+                                        <details class="master alive">
+                                            <summary><a class="author" href="../user?name=元方" target="_blank">元方</a></summary>
+                                            <details class="master alive">
+                                                <summary><a class="author" href="../user?name=老王" target="_blank">老王</a></summary>
+                                                <details>
+                                                    <summary><a class="author" href="../user?name=小胖" target="_blank">小胖</a></summary>
+                                                </details>
+                                                <details class="master alive">
+                                                    <summary><a class="author" href="../user?name=金木" target="_blank">金木</a></summary>
+                                                    <details class="master alive">
+                                                        <summary><a class="author" href="../user?name=Doggie多几" target="_blank">Doggie多几</a></summary>
+                                                        <details class="graduated">
+                                                            <summary><a class="author" href="../user?name=傻白" target="_blank">傻白</a></summary>
+                                                        </details>
+                                                        <details class="graduated">
+                                                            <summary><a class="author" href="../user?name=向晚" target="_blank">向晚</a></summary>
+                                                        </details>
+                                                        <details class="apprentice">
+                                                            <summary><a class="author" href="../user?name=未小名" target="_blank">未小名</a></summary>
+                                                        </details>
+                                                        <details class="master alive">
+                                                            <summary><a class="author" href="../user?name=小奶猫" target="_blank">小奶猫</a></summary>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=古喬" target="_blank">古喬</a></summary>
+                                                            </details>
+                                                            <details class="apprentice">
+                                                                <summary><a class="author" href="../user?name=Sylvia_Shi" target="_blank">Sylvia_Shi</a></summary>
+                                                            </details>
+                                                            <details class="apprentice">
+                                                                <summary><a class="author" href="../user?name=熊二" target="_blank">熊二</a></summary>
+                                                            </details>
+                                                            <details class="apprentice">
+                                                                <summary><a class="author" href="../user?name=墨殇" target="_blank">墨殇</a></summary>
+                                                            </details>
+                                                            <details class="apprentice">
+                                                                <summary><a class="author" href="../user?name=哈哈" target="_blank">哈哈</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=小风铃" target="_blank">小风铃</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=九刀" target="_blank">九刀</a></summary>
+                                                            </details>
+                                                        </details>
+                                                        <details class="apprentice">
+                                                            <summary><a class="author" href="../user?name=纹水" target="_blank">纹水</a></summary>
+                                                        </details>
+                                                        <details class="apprentice">
+                                                            <summary><a class="author" href="../user?name=烟囱" target="_blank">烟囱</a></summary>
+                                                        </details>
+                                                        <details class="apprentice">
+                                                            <summary><a class="author" href="../user?name=黑蛋" target="_blank">黑蛋</a></summary>
+                                                        </details>
+                                                    </details>
+                                                    <details>
+                                                        <summary><a class="author" href="../user?name=乳酸菌" target="_blank">乳酸菌</a></summary>
+                                                    </details>
+                                                    <details>
+                                                        <summary><a class="author" href="../user?name=猹" target="_blank">猹</a></summary>
+                                                    </details>
+                                                    <details class="apprentice">
+                                                        <summary><a class="author" href="../user?name=怡口莲" target="_blank">怡口莲</a></summary>
+                                                    </details>
+                                                    <details class="master alive">
+                                                        <summary><a class="author" href="../user?name=人吃鱼" target="_blank">人吃鱼</a></summary>
+                                                        <details class="apprentice">
+                                                            <summary><a class="author" href="../user?name=望山" target="_blank">望山</a></summary>
+                                                        </details>
+                                                        <details class="master alive">
+                                                            <summary><a class="author" href="../user?name=火星禹" target="_blank">火星禹</a></summary>
+                                                            <details class="master alive">
+                                                                <summary><a class="author" href="../user?name=甜甜" target="_blank">甜甜</a></summary>
+                                                                <details class="apprentice">
+                                                                    <summary><a class="author" href="../user?name=hanhan" target="_blank">hanhan</a></summary>
+                                                                </details>
+                                                                <details class="master alive">
+                                                                    <summary><a class="author" href="../user?name=华年" target="_blank">华年</a></summary>
+                                                                    <details class="apprentice">
+                                                                        <summary><a class="author" href="../user?name=毛球" target="_blank">毛球</a></summary>
+                                                                    </details>
+                                                                    <details class="apprentice">
+                                                                        <summary><a class="author" href="../user?name=云nuage" target="_blank">云nuage</a></summary>
+                                                                    </details>
+                                                                    <details class="graduated">
+                                                                        <summary><a class="author" href="../user?name=浅言" target="_blank">浅言</a></summary>
+                                                                    </details>
+                                                                    <details class="apprentice">
+                                                                        <summary><a class="author" href="../user?name=青鸟" target="_blank">青鸟</a></summary>
+                                                                    </details>
+                                                                    <details class="apprentice">
+                                                                        <summary><a class="author" href="../user?name=kx" target="_blank">kx</a></summary>
+                                                                    </details>
+                                                                </details>
+                                                                <details class="graduated">
+                                                                    <summary><a class="author" href="../user?name=是栗子呀" target="_blank">是栗子呀</a></summary>
+                                                                </details>
+                                                                <details class="apprentice">
+                                                                    <summary><a class="author" href="../user?name=饼饼" target="_blank">饼饼</a></summary>
+                                                                </details>
+                                                                <details class="apprentice">
+                                                                    <summary><a class="author" href="../user?name=Joy啾伊" target="_blank">Joy啾伊</a></summary>
+                                                                </details>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=孟德" target="_blank">孟德</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=笑笑xx" target="_blank">笑笑xx</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=黑猫" target="_blank">黑猫</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=黄桃" target="_blank">黄桃</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=小满" target="_blank">小满</a></summary>
+                                                            </details>
+                                                            <details class="master alive">
+                                                                <summary><a class="author" href="../user?name=暗星" target="_blank">暗星</a></summary>
+                                                                <details class="apprentice">
+                                                                    <summary><a class="author" href="../user?name= lucky" target="_blank"> lucky</a></summary>
+                                                                </details>
+                                                                <details class="graduated">
+                                                                    <summary><a class="author" href="../user?name=黑胡思" target="_blank">黑胡思</a></summary>
+                                                                </details>
+                                                                <details class="graduated">
+                                                                    <summary><a class="author" href="../user?name=牛肉汤圆" target="_blank">牛肉汤圆</a></summary>
+                                                                </details>
+                                                                <details class="graduated">
+                                                                    <summary><a class="author" href="../user?name=月霜" target="_blank">月霜</a></summary>
+                                                                </details>
+                                                                <details class="graduated">
+                                                                    <summary><a class="author" href="../user?name=橡皮." target="_blank">橡皮.</a></summary>
+                                                                </details>
+                                                                <details class="graduated">
+                                                                    <summary><a class="author" href="../user?name=翠翠r" target="_blank">翠翠r</a></summary>
+                                                                </details>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=小圆圆的小汤圆" target="_blank">小圆圆的小汤圆</a></summary>
+                                                            </details>
+                                                            <details class="graduated">
+                                                                <summary><a class="author" href="../user?name=table-ywz" target="_blank">table-ywz</a></summary>
+                                                            </details>
+                                                        </details>
+                                                        <details class="graduated">
+                                                            <summary><a class="author" href="../user?name=司南" target="_blank">司南</a></summary>
+                                                        </details>
+                                                        <details class="graduated">
+                                                            <summary><a class="author" href="../user?name=迷路的云" target="_blank">迷路的云</a></summary>
+                                                        </details>
+                                                        <details class="apprentice">
+                                                            <summary><a class="author" href="../user?name=老李" target="_blank">老李</a></summary>
+                                                        </details>
+                                                    </details>
+                                                    <details class="graduated">
+                                                        <summary><a class="author" href="../user?name=八万" target="_blank">八万</a></summary>
+                                                    </details>
+                                                    <details class="graduated">
+                                                        <summary><a class="author" href="../user?name=三千" target="_blank">三千</a></summary>
+                                                    </details>
+                                                    <details class="graduated">
+                                                        <summary><a class="author" href="../user?name=果丹皮" target="_blank">果丹皮</a></summary>
+                                                    </details>
+                                                    <details class="graduated">
+                                                        <summary><a class="author" href="../user?name=Peggy" target="_blank">Peggy</a></summary>
+                                                    </details>
+                                                    <details class="apprentice">
+                                                        <summary><a class="author" href="../user?name=小金鱼" target="_blank">小金鱼</a></summary>
+                                                    </details>
+                                                </details>
+                                                <details>
+                                                    <summary><a class="author" href="../user?name=橡皮狗狗" target="_blank">橡皮狗狗</a></summary>
+                                                </details>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=砰砰" target="_blank">砰砰</a></summary>
+                                            </details>
+                                            <details>
+                                                <summary><a class="author" href="../user?name=本大爷" target="_blank">本大爷</a></summary>
+                                            </details>
+                                        </details>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=栗子-w-" target="_blank">栗子-w-</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=欧琼鸟" target="_blank">欧琼鸟</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=春卷" target="_blank">春卷</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=Darcy" target="_blank">Darcy</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=玥" target="_blank">玥</a></summary>
+                                    </details>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=东北人儿" target="_blank">东北人儿</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=疏影" target="_blank">疏影</a></summary>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=阿华田" target="_blank">阿华田</a></summary>
+                                    </details>
+                                    <details class="master">
+                                        <summary><a class="author" href="../user?name=未名小池" target="_blank">未名小池</a></summary>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=水哥" target="_blank">水哥</a></summary>
+                                        </details>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=勺儿" target="_blank">勺儿</a></summary>
+                                        </details>
+                                        <details class="master">
+                                            <summary><a class="author" href="../user?name=那棵树看起来生气了" target="_blank">那棵树看起来生气了</a></summary>
+                                        </details>
+                                        <details>
+                                            <summary><a class="author" href="../user?name=羊儿" target="_blank">羊儿</a></summary>
+                                        </details>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=抹茶" target="_blank">抹茶</a></summary>
+                                    </details>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=方远" target="_blank">方远</a></summary>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=Robin" target="_blank">Robin</a></summary>
+                        </details>
+                    </details>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=飘飘" target="_blank">飘飘</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=球球" target="_blank">球球</a></summary>
+                    </details>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=添夏" target="_blank">添夏</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=冰淇淋" target="_blank">冰淇淋</a></summary>
+                    </details>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=碧霄" target="_blank">碧霄</a></summary>
+                </details>
+            </details>
+        </details>
+        <details class="master alive">
+            <summary><a class="author" href="../user?name=阿漆" target="_blank">阿漆</a></summary>
+            <details class="master">
+                <summary><a class="author" href="../user?name=沸腾的蛋挞" target="_blank">沸腾的蛋挞</a></summary>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=鸡蛋永不碎" target="_blank">鸡蛋永不碎</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=逍阳" target="_blank">逍阳</a></summary>
+                </details>
+            </details>
+            <details class="master alive">
+                <summary><a class="author" href="../user?name=番茄09" target="_blank">番茄09</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=月桂" target="_blank">月桂</a></summary>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=知了" target="_blank">知了</a></summary>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=路人癸" target="_blank">路人癸</a></summary>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=大黄蜂" target="_blank">大黄蜂</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=王小狼" target="_blank">王小狼</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=EASY_han" target="_blank">EASY_han</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=hoppy" target="_blank">hoppy</a></summary>
+                                </details>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=蜜蜂" target="_blank">蜜蜂</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=十三月" target="_blank">十三月</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=馒头" target="_blank">馒头</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=零七" target="_blank">零七</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=保安" target="_blank">保安</a></summary>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=青铜" target="_blank">青铜</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=凡子" target="_blank">凡子</a></summary>
+                            </details>
+                        </details>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=小顺儿" target="_blank">小顺儿</a></summary>
+                    </details>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=登蹲" target="_blank">登蹲</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=犀利" target="_blank">犀利</a></summary>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=辰龙" target="_blank">辰龙</a></summary>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=半仙" target="_blank">半仙</a></summary>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=南方" target="_blank">南方</a></summary>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=spidey" target="_blank">spidey</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=大智慧" target="_blank">大智慧</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=飞飞~" target="_blank">飞飞~</a></summary>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=小老虎" target="_blank">小老虎</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=福贵" target="_blank">福贵</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=二狗" target="_blank">二狗</a></summary>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=木呆呆" target="_blank">木呆呆</a></summary>
+                            </details>
+                        </details>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=维茨C" target="_blank">维茨C</a></summary>
+                    </details>
+                </details>
+                <details class="master alive">
+                    <summary><a class="author" href="../user?name=木头。。。" target="_blank">木头。。。</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=杨柳" target="_blank">杨柳</a></summary>
+                    </details>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=秋霜" target="_blank">秋霜</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=渣啊" target="_blank">渣啊</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=可爱多" target="_blank">可爱多</a></summary>
+                        </details>
+                    </details>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=luckisss" target="_blank">Luckisss</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=何足道" target="_blank">何足道</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=君步其" target="_blank">君步其</a></summary>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=薛定谔的猫" target="_blank">薛定谔的猫</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=小白痴" target="_blank">小白痴</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=小山" target="_blank">小山</a></summary>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=周三三" target="_blank">周三三</a></summary>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=爆米花" target="_blank">爆米花</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=小火" target="_blank">小火</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=幽月" target="_blank">幽月</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=菜籽儿" target="_blank">菜籽儿</a></summary>
+                        </details>
+                    </details>
+                    <details class="master alive">
+                        <summary><a class="author" href="../user?name=暖玉生烟" target="_blank">暖玉生烟</a></summary>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=天才悦吖" target="_blank">天才悦吖</a></summary>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=炸弹" target="_blank">炸弹</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=鸟人" target="_blank">鸟人</a></summary>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=Libby" target="_blank">Libby</a></summary>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=喵喵" target="_blank">喵喵</a></summary>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=破風" target="_blank">破風</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=儒生" target="_blank">儒生</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=小帆帆" target="_blank">小帆帆</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=永恒的冬天" target="_blank">永恒的冬天</a></summary>
+                            </details>
+                            <details class="apprentice">
+                                <summary><a class="author" href="../user?name=卡卡" target="_blank">卡卡</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=夏夏_yao" target="_blank">夏夏_yao</a></summary>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=牙牙" target="_blank">牙牙</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=左眼皮" target="_blank">左眼皮</a></summary>
+                                </details>
+                            </details>
+                        </details>
+                        <details class="master alive">
+                            <summary><a class="author" href="../user?name=ocean" target="_blank">ocean</a></summary>
+                            <details class="master alive">
+                                <summary><a class="author" href="../user?name=火日立" target="_blank">火日立</a></summary>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=Rabi" target="_blank">Rabi</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=璇屿" target="_blank">璇屿</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=黄金" target="_blank">黄金</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=羚羊" target="_blank">羚羊</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=Y歪" target="_blank">Y歪</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=琤小" target="_blank">琤小</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=五号" target="_blank">五号</a></summary>
+                                </details>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=栖风" target="_blank">栖风</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=咕孤" target="_blank">咕孤</a></summary>
+                                    </details>
+                                    <details class="master alive">
+                                        <summary><a class="author" href="../user?name=土龟" target="_blank">土龟</a></summary>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=一片叶子" target="_blank">一片叶子</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=不倦" target="_blank">不倦</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=莽夫" target="_blank">莽夫</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=飞橘" target="_blank">飞橘</a></summary>
+                                        </details>
+                                    </details>
+                                    <details class="master alive">
+                                        <summary><a class="author" href="../user?name=峰林" target="_blank">峰林</a></summary>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=壹乙" target="_blank">壹乙</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=冰苎" target="_blank">冰苎</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=路易十六" target="_blank">路易十六</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=菊石" target="_blank">菊石</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=团子2号" target="_blank">团子2号</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=雾路" target="_blank">雾路</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=长河" target="_blank">长河</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=余割" target="_blank">余割</a></summary>
+                                        </details>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=猿王" target="_blank">猿王</a></summary>
+                                    </details>
+                                    <details class="master alive">
+                                        <summary><a class="author" href="../user?name=好香！" target="_blank">好香！</a></summary>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=声殳" target="_blank">声殳</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=成绩" target="_blank">成绩</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=劳模" target="_blank">劳模</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=石市黄三" target="_blank">石市黄三</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=紫浩" target="_blank">紫浩</a></summary>
+                                        </details>
+                                    </details>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=冬呱" target="_blank">冬呱</a></summary>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=虚怀" target="_blank">虚怀</a></summary>
+                            </details>
+                        </details>
+                    </details>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=天空" target="_blank">天空</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=monica" target="_blank">monica</a></summary>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=枫" target="_blank">枫</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=阿shi" target="_blank">阿shi</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=疯帽子" target="_blank">疯帽子</a></summary>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=卡丘" target="_blank">卡丘</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=米线" target="_blank">米线</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=玄天" target="_blank">玄天</a></summary>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=Mckinsey" target="_blank">Mckinsey</a></summary>
+                                    </details>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=麋鹿" target="_blank">麋鹿</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=瓜皮" target="_blank">瓜皮</a></summary>
+                            </details>
+                            <details class="apprentice">
+                                <summary><a class="author" href="../user?name=洛尘" target="_blank">洛尘</a></summary>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=筱颜" target="_blank">筱颜</a></summary>
+                        </details>
+                    </details>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=老牛" target="_blank">老牛</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=不二猫" target="_blank">不二猫</a></summary>
+                </details>
+            </details>
+            <details class="master alive">
+                <summary><a class="author" href="../user?name=icy" target="_blank">icy</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=略略" target="_blank">略略</a></summary>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=拨云见日" target="_blank">拨云见日</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=朱雀" target="_blank">朱雀</a></summary>
+                    </details>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=秃鹫" target="_blank">秃鹫</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=张山峰" target="_blank">张山峰</a></summary>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=魔方" target="_blank">魔方</a></summary>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=小风" target="_blank">小风</a></summary>
+                    </details>
+                </details>
+                <details class="master alive">
+                    <summary><a class="author" href="../user?name=九哨" target="_blank">九哨</a></summary>
+                    <details class="master alive">
+                        <summary><a class="author" href="../user?name=马丁Martínez" target="_blank">马丁Martínez</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=夏天。" target="_blank">夏天。</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=Nature" target="_blank">Nature</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=洋丘丘" target="_blank">洋丘丘</a></summary>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=焕少" target="_blank">焕少</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=北辰" target="_blank">北辰</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=dvang" target="_blank">dvang</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=大鱼" target="_blank">大鱼</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=祭酒" target="_blank">祭酒</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=光子" target="_blank">光子</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=三金" target="_blank">三金</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=开心果" target="_blank">开心果</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=蛋蛋" target="_blank">蛋蛋</a></summary>
+                            </details>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=小刀" target="_blank">小刀</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=将布" target="_blank">将布</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=未来" target="_blank">未来</a></summary>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=淘淘猫" target="_blank">淘淘猫</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=静静" target="_blank">静静</a></summary>
+                        </details>
+                        <details class="master alive">
+                            <summary><a class="author" href="../user?name=真空中的球形鸡" target="_blank">真空中的球形鸡</a></summary>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=麻团" target="_blank">麻团</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=Fish" target="_blank">Fish</a></summary>
+                            </details>
+                            <details class="apprentice">
+                                <summary><a class="author" href="../user?name=葵大" target="_blank">葵大</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=刷子" target="_blank">刷子</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=燃鹅" target="_blank">燃鹅</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=摩洛哥坚果" target="_blank">摩洛哥坚果</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=木兰" target="_blank">木兰</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=星海凛冬" target="_blank">星海凛冬</a></summary>
+                            </details>
+                            <details class="apprentice">
+                                <summary><a class="author" href="../user?name=渔歌" target="_blank">渔歌</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=于西" target="_blank">于西</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=球状闪电" target="_blank">球状闪电</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=麦叔" target="_blank">麦叔</a></summary>
+                            </details>
+                            <details class="graduated">
+                                <summary><a class="author" href="../user?name=祖国之鹰" target="_blank">祖国之鹰</a></summary>
+                            </details>
+                            <details class="apprentice">
+                                <summary><a class="author" href="../user?name=雨伞" target="_blank">雨伞</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=希尔" target="_blank">希尔</a></summary>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=小轩" target="_blank">小轩</a></summary>
+                                </details>
+                            </details>
+                            <details class="master alive">
+                                <summary><a class="author" href="../user?name=靴子" target="_blank">靴子</a></summary>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=河虾" target="_blank">河虾</a></summary>
+                                </details>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=咋肥四鸭" target="_blank">咋肥四鸭</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=DUE" target="_blank">DUE</a></summary>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=Ao" target="_blank">Ao</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=六三" target="_blank">六三</a></summary>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=away" target="_blank">away</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=土山" target="_blank">土山</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=青天草" target="_blank">青天草</a></summary>
+                                    </details>
+                                </details>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=Shirley" target="_blank">Shirley</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=半包火" target="_blank">半包火</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=无忧" target="_blank">无忧</a></summary>
+                        </details>
+                    </details>
+                    <details class="master alive">
+                        <summary><a class="author" href="../user?name=李桥" target="_blank">李桥</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=火火" target="_blank">火火</a></summary>
+                        </details>
+                        <details class="master alive">
+                            <summary><a class="author" href="../user?name=果粒橙" target="_blank">果粒橙</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=AlanXD" target="_blank">AlanXD</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=天狼星" target="_blank">天狼星</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=风辰" target="_blank">风辰</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=月厨" target="_blank">月厨</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=伍小鸭" target="_blank">伍小鸭</a></summary>
+                                </details>
+                            </details>
+                            <details class="master alive">
+                                <summary><a class="author" href="../user?name=别扭" target="_blank">别扭</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=昱帝哥哥" target="_blank">昱帝哥哥</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=琦琦" target="_blank">琦琦</a></summary>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=大酱" target="_blank">大酱</a></summary>
+                                    </details>
+                                    <details class="master">
+                                        <summary><a class="author" href="../user?name=贾贾" target="_blank">贾贾</a></summary>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=Ideal" target="_blank">Ideal</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=esterx86" target="_blank">esterx86</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=木梨" target="_blank">木梨</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=小地瓜" target="_blank">小地瓜</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=月下竹" target="_blank">月下竹</a></summary>
+                                        </details>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=霜降" target="_blank">霜降</a></summary>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=sager" target="_blank">sager</a></summary>
+                                    </details>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=凌空" target="_blank">凌空</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=yeats" target="_blank">yeats</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=浣熊" target="_blank">浣熊</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=春城" target="_blank">春城</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=大括号" target="_blank">大括号</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=舞龙" target="_blank">舞龙</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=纸鹞" target="_blank">纸鹞</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=哈密瓜" target="_blank">哈密瓜</a></summary>
+                                    </details>
+                                </details>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=大山" target="_blank">大山</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=追风" target="_blank">追风</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=晓寒" target="_blank">晓寒</a></summary>
+                                    </details>
+                                    <details class="master alive">
+                                        <summary><a class="author" href="../user?name=黄杨" target="_blank">黄杨</a></summary>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=连锁店量产锁鱻咸魚" target="_blank">连锁店量产锁鱻咸魚</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=圆魄" target="_blank">圆魄</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=向阳" target="_blank">向阳</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=立夏" target="_blank">立夏</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=秋小果" target="_blank">秋小果</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=小枝" target="_blank">小枝</a></summary>
+                                        </details>
+                                        <details class="master alive">
+                                            <summary><a class="author" href="../user?name=机械师" target="_blank">机械师</a></summary>
+                                            <details class="graduated">
+                                                <summary><a class="author" href="../user?name=四羊" target="_blank">四羊</a></summary>
+                                            </details>
+                                            <details class="apprentice">
+                                                <summary><a class="author" href="../user?name=阿哲" target="_blank">阿哲</a></summary>
+                                            </details>
+                                            <details class="apprentice">
+                                                <summary><a class="author" href="../user?name=才能" target="_blank">才能</a></summary>
+                                            </details>
+                                            <details class="apprentice">
+                                                <summary><a class="author" href="../user?name=dream" target="_blank">dream</a></summary>
+                                            </details>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=螺蛳粉" target="_blank">螺蛳粉</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=银狐" target="_blank">银狐</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=一鸣" target="_blank">一鸣</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=彤彤" target="_blank">彤彤</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=dudu" target="_blank">dudu</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=山楂糕" target="_blank">山楂糕</a></summary>
+                                        </details>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=林芳" target="_blank">林芳</a></summary>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=琪姐姐" target="_blank">琪姐姐</a></summary>
+                                    </details>
+                                    <details class="apprentice">
+                                        <summary><a class="author" href="../user?name=灰灰" target="_blank">灰灰</a></summary>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=小米" target="_blank">小米</a></summary>
+                                    </details>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=qiu" target="_blank">qiu</a></summary>
+                                </details>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=毛毛熊" target="_blank">毛毛熊</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=猪" target="_blank">猪</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=兔纸" target="_blank">兔纸</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=良辰" target="_blank">良辰</a></summary>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=黑策策" target="_blank">黑策策</a></summary>
+                                    </details>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=新一" target="_blank">新一</a></summary>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=胡雪狼" target="_blank">胡雪狼</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=小羊" target="_blank">小羊</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=旺旺" target="_blank">旺旺</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=海龟" target="_blank">海龟</a></summary>
+                            </details>
+                        </details>
+                        <details class="master alive">
+                            <summary><a class="author" href="../user?name=人输元" target="_blank">人输元</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=大胖狗" target="_blank">大胖狗</a></summary>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=灰白" target="_blank">灰白</a></summary>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=千煜" target="_blank">千煜</a></summary>
+                                </details>
+                                <details class="master">
+                                    <summary><a class="author" href="../user?name=渡渡鸟" target="_blank">渡渡鸟</a></summary>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=明非" target="_blank">明非</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=树袋熊" target="_blank">树袋熊</a></summary>
+                                    </details>
+                                    <details>
+                                        <summary><a class="author" href="../user?name=差分熊" target="_blank">差分熊</a></summary>
+                                    </details>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=浪月仙" target="_blank">浪月仙</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=瓦罐汤" target="_blank">瓦罐汤</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=炸土豆" target="_blank">炸土豆</a></summary>
+                                </details>
+                            </details>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=蓝宇" target="_blank">蓝宇</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=Nancy-Zhou" target="_blank">Nancy-Zhou</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=雪糕" target="_blank">雪糕</a></summary>
+                                </details>
+                                <details>
+                                    <summary><a class="author" href="../user?name=查克" target="_blank">查克</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=阿银" target="_blank">阿银（联培by小东）</a></summary>
+                                </details>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=木佳" target="_blank">木佳</a></summary>
+                            </details>
+                            <details class="master alive">
+                                <summary><a class="author" href="../user?name=小恶魔" target="_blank">小恶魔</a></summary>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=葱7" target="_blank">葱7</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=凯爷" target="_blank">凯爷</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=小天使" target="_blank">小天使</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=言西呀早呀" target="_blank">言西呀早呀</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=方冬" target="_blank">方冬</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=CDK" target="_blank">CDK</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=戈登桑" target="_blank">戈登桑</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=晓舟" target="_blank">晓舟</a></summary>
+                                </details>
+                                <details class="graduated">
+                                    <summary><a class="author" href="../user?name=无限集" target="_blank">无限集</a></summary>
+                                </details>
+                                <details class="apprentice">
+                                    <summary><a class="author" href="../user?name=%2b明" target="_blank">+明</a></summary>
+                                </details>
+                                <details class="master alive">
+                                    <summary><a class="author" href="../user?name=小饭团w" target="_blank">小饭团w</a></summary>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=风吟" target="_blank">风吟</a></summary>
+                                    </details>
+                                    <details class="master alive">
+                                        <summary><a class="author" href="../user?name=小笨熊" target="_blank">小笨熊</a></summary>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=游乐" target="_blank">游乐</a></summary>
+                                        </details>
+                                        <details class="apprentice">
+                                            <summary><a class="author" href="../user?name=乐迪" target="_blank">乐迪</a></summary>
+                                        </details>
+                                        <details class="graduated">
+                                            <summary><a class="author" href="../user?name=橘猫" target="_blank">橘猫</a></summary>
+                                        </details>
+                                    </details>
+                                    <details class="graduated">
+                                        <summary><a class="author" href="../user?name=燕麦" target="_blank">燕麦</a></summary>
+                                    </details>
+                                </details>
+                            </details>
+                        </details>
+                    </details>
+                </details>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=瓜牛" target="_blank">瓜牛</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=菲菲" target="_blank">菲菲</a></summary>
+            </details>
+            <details class="master">
+                <summary><a class="author" href="../user?name=牛仔" target="_blank">牛仔</a></summary>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=厚道" target="_blank">厚道</a></summary>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=游人" target="_blank">游人</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=渔夫" target="_blank">渔夫</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=小虞" target="_blank">小虞</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=Catcher" target="_blank">Catcher</a></summary>
+                        </details>
+                    </details>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=庄生" target="_blank">庄生</a></summary>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=鸿爪" target="_blank">鸿爪</a></summary>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=乱舞" target="_blank">乱舞</a></summary>
+                            <details class="master">
+                                <summary><a class="author" href="../user?name=斯途" target="_blank">斯途</a></summary>
+                                <details>
+                                    <summary><a class="author" href="../user?name=Doris" target="_blank">Doris</a></summary>
+                                </details>
+                            </details>
+                        </details>
+                        <details class="master">
+                            <summary><a class="author" href="../user?name=疯子" target="_blank">疯子</a></summary>
+                            <details>
+                                <summary><a class="author" href="../user?name=五季" target="_blank">五季</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=悠光" target="_blank">悠光</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=荒野" target="_blank">荒野</a></summary>
+                            </details>
+                            <details>
+                                <summary><a class="author" href="../user?name=橙子cc" target="_blank">橙子cc</a></summary>
+                            </details>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=清扬" target="_blank">清扬</a></summary>
+                        </details>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=猴儿" target="_blank">猴儿</a></summary>
+                    </details>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=徐岳" target="_blank">徐岳</a></summary>
+                </details>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=逆水寒" target="_blank">逆水寒</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=卡猪" target="_blank">卡猪</a></summary>
+            <details class="master">
+                <summary><a class="author" href="../user?name=暮潮" target="_blank">暮潮</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=小但" target="_blank">小但</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=耗子13" target="_blank">耗子13</a></summary>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=继光" target="_blank">继光</a></summary>
+                </details>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=珈玥" target="_blank">珈玥</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=liber" target="_blank">liber</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=珞珞" target="_blank">珞珞</a></summary>
+            </details>
+            <details class="master">
+                <summary><a class="author" href="../user?name=路人" target="_blank">路人</a></summary>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=木杉" target="_blank">木杉</a></summary>
+                    <details>
+                        <summary><a class="author" href="../user?name=风翼" target="_blank">风翼</a></summary>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=拼图" target="_blank">拼图</a></summary>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=白楊" target="_blank">白楊</a></summary>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=萧萧" target="_blank">萧萧</a></summary>
+                    </details>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=罗斯" target="_blank">罗斯</a></summary>
+                </details>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=暖暖" target="_blank">暖暖</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=天天" target="_blank">天天</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=billy" target="_blank">billy</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=法风烧饼" target="_blank">法风烧饼</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=疯狂的小鸟" target="_blank">疯狂的小鸟</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=wangzhe93" target="_blank">wangzhe93</a></summary>
+                </details>
+            </details>
+            <details class="master">
+                <summary><a class="author" href="../user?name=铁流" target="_blank">铁流</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=衣架子" target="_blank">衣架子</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=平川" target="_blank">平川</a></summary>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=晓柔" target="_blank">晓柔</a></summary>
+                </details>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=杨栋" target="_blank">杨栋</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=斯图" target="_blank">斯图</a></summary>
+            <details class="master">
+                <summary><a class="author" href="../user?name=轩辕06" target="_blank">轩辕06</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=小豆丁" target="_blank">小豆丁</a></summary>
+                </details>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=蛋卷22" target="_blank">蛋卷22</a></summary>
+            </details>
+            <details>
+                <summary><a class="author" href="../user?name=Tony" target="_blank">Tony</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=肥Q" target="_blank">肥Q</a></summary>
+            <details class="master">
+                <summary><a class="author" href="../user?name=北曦" target="_blank">北曦</a></summary>
+                <details>
+                    <summary><a class="author" href="../user?name=瑶琴" target="_blank">瑶琴</a></summary>
+                </details>
+                <details class="master">
+                    <summary><a class="author" href="../user?name=熊熊" target="_blank">熊熊</a></summary>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=圾洞" target="_blank">圾洞</a></summary>
+                        <details>
+                            <summary><a class="author" href="../user?name=墨清" target="_blank">墨清</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=熊大大雄" target="_blank">熊大大雄</a></summary>
+                        </details>
+                        <details>
+                            <summary><a class="author" href="../user?name=果蝇" target="_blank">果蝇</a></summary>
+                        </details>
+                    </details>
+                    <details>
+                        <summary><a class="author" href="../user?name=雨晴" target="_blank">雨晴</a></summary>
+                    </details>
+                    <details class="master">
+                        <summary><a class="author" href="../user?name=小s" target="_blank">小s</a></summary>
+                    </details>
+                </details>
+                <details>
+                    <summary><a class="author" href="../user?name=正阳" target="_blank">正阳</a></summary>
+                </details>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=游侠" target="_blank">游侠</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=繁海" target="_blank">繁海</a></summary>
+            </details>
+        </details>
+        <details class="master">
+            <summary><a class="author" href="../user?name=丙酮" target="_blank">丙酮</a></summary>
+            <details>
+                <summary><a class="author" href="../user?name=YETI雪人" target="_blank">YETI雪人</a></summary>
+            </details>
+        </details>
+    </details>
+</div>
