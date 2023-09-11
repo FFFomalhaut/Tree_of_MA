@@ -25,28 +25,28 @@ int main() {
     FILE* inputFile;
     FILE* outputFile;
 
-    // 鎵撳紑杈撳叆鏂囦欢
+    // 打开输入文件
     inputFile = fopen("content.html", "r");
     if (inputFile == NULL) {
-        printf("鏃犳硶鎵撳紑杈撳叆鏂囦欢銆俓n");
+        printf("无法打开输入文件。\n");
         return 1;
     }
 
-    // 鍒涘缓骞舵墦寮�杈撳嚭鏂囦欢
+    // 创建并打开输出文件
     outputFile = fopen("content.min.html", "w");
     if (outputFile == NULL) {
-        printf("鏃犳硶鍒涘缓杈撳嚭鏂囦欢銆俓n");
+        printf("无法创建输出文件。\n");
         return 1;
     }
 
-    // 鍒犻櫎鎹㈣绗﹀拰鍥涗釜涓�缁勭殑绌烘牸
+    // 删除换行符和四个一组的空格
     removeNewlinesAndSpaces(inputFile, outputFile);
 
-    // 鍏抽棴鏂囦欢
+    // 关闭文件
     fclose(inputFile);
     fclose(outputFile);
 
-    printf("澶勭悊瀹屾垚銆俓n");
+    printf("处理完成。\n");
 
     getchar();
     return 0;
